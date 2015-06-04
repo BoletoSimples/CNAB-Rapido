@@ -10,9 +10,10 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var monitoringPath: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        monitoringPath.enabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +23,17 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func choosePath(sender: AnyObject) {
+        let directoryPicker: NSOpenPanel = NSOpenPanel()
+        directoryPicker.allowsMultipleSelection = false
+        directoryPicker.canChooseDirectories = true
+        directoryPicker.canChooseFiles = false
+        directoryPicker.runModal()
+        var choosenDirectory = directoryPicker.URL
+        if(choosenDirectory != nil) {
+            monitoringPath.stringValue = choosenDirectory!.path!
+        }
+    }
 
 }
 
