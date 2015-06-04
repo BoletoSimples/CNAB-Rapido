@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6E31B20D3D700D4A63D /* AppDelegate.swift */; };
+		536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6E51B20D3D700D4A63D /* ViewController.swift */; };
+		536FD6E81B20D3D700D4A63D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E71B20D3D700D4A63D /* Images.xcassets */; };
+		536FD6EB1B20D3D700D4A63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E91B20D3D700D4A63D /* Main.storyboard */; };
+		536FD6F71B20D3D700D4A63D /* CNAB_RapidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		536FD6F11B20D3D700D4A63D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 536FD6D61B20D3D700D4A63D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 536FD6DD1B20D3D700D4A63D;
+			remoteInfo = "CNAB Rapido";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNAB Rapido.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		536FD6E21B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		536FD6E31B20D3D700D4A63D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		536FD6E51B20D3D700D4A63D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		536FD6E71B20D3D700D4A63D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		536FD6EA1B20D3D700D4A63D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CNAB RapidoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		536FD6F51B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNAB_RapidoTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		536FD6DB1B20D3D700D4A63D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		536FD6ED1B20D3D700D4A63D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		536FD6D51B20D3D700D4A63D = {
+			isa = PBXGroup;
+			children = (
+				536FD6E01B20D3D700D4A63D /* CNAB Rapido */,
+				536FD6F31B20D3D700D4A63D /* CNAB RapidoTests */,
+				536FD6DF1B20D3D700D4A63D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		536FD6DF1B20D3D700D4A63D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */,
+				536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		536FD6E01B20D3D700D4A63D /* CNAB Rapido */ = {
+			isa = PBXGroup;
+			children = (
+				536FD6E31B20D3D700D4A63D /* AppDelegate.swift */,
+				536FD6E51B20D3D700D4A63D /* ViewController.swift */,
+				536FD6E71B20D3D700D4A63D /* Images.xcassets */,
+				536FD6E91B20D3D700D4A63D /* Main.storyboard */,
+				536FD6E11B20D3D700D4A63D /* Supporting Files */,
+			);
+			path = "CNAB Rapido";
+			sourceTree = "<group>";
+		};
+		536FD6E11B20D3D700D4A63D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				536FD6E21B20D3D700D4A63D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		536FD6F31B20D3D700D4A63D /* CNAB RapidoTests */ = {
+			isa = PBXGroup;
+			children = (
+				536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */,
+				536FD6F41B20D3D700D4A63D /* Supporting Files */,
+			);
+			path = "CNAB RapidoTests";
+			sourceTree = "<group>";
+		};
+		536FD6F41B20D3D700D4A63D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				536FD6F51B20D3D700D4A63D /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		536FD6DD1B20D3D700D4A63D /* CNAB Rapido */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 536FD6FA1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB Rapido" */;
+			buildPhases = (
+				536FD6DA1B20D3D700D4A63D /* Sources */,
+				536FD6DB1B20D3D700D4A63D /* Frameworks */,
+				536FD6DC1B20D3D700D4A63D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CNAB Rapido";
+			productName = "CNAB Rapido";
+			productReference = 536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */;
+			productType = "com.apple.product-type.application";
+		};
+		536FD6EF1B20D3D700D4A63D /* CNAB RapidoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RapidoTests" */;
+			buildPhases = (
+				536FD6EC1B20D3D700D4A63D /* Sources */,
+				536FD6ED1B20D3D700D4A63D /* Frameworks */,
+				536FD6EE1B20D3D700D4A63D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				536FD6F21B20D3D700D4A63D /* PBXTargetDependency */,
+			);
+			name = "CNAB RapidoTests";
+			productName = "CNAB RapidoTests";
+			productReference = 536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		536FD6D61B20D3D700D4A63D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = br.com.boletosimples;
+				TargetAttributes = {
+					536FD6DD1B20D3D700D4A63D = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					536FD6EF1B20D3D700D4A63D = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 536FD6DD1B20D3D700D4A63D;
+					};
+				};
+			};
+			buildConfigurationList = 536FD6D91B20D3D700D4A63D /* Build configuration list for PBXProject "CNAB Rapido" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 536FD6D51B20D3D700D4A63D;
+			productRefGroup = 536FD6DF1B20D3D700D4A63D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				536FD6DD1B20D3D700D4A63D /* CNAB Rapido */,
+				536FD6EF1B20D3D700D4A63D /* CNAB RapidoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		536FD6DC1B20D3D700D4A63D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				536FD6E81B20D3D700D4A63D /* Images.xcassets in Resources */,
+				536FD6EB1B20D3D700D4A63D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		536FD6EE1B20D3D700D4A63D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		536FD6DA1B20D3D700D4A63D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */,
+				536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		536FD6EC1B20D3D700D4A63D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				536FD6F71B20D3D700D4A63D /* CNAB_RapidoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		536FD6F21B20D3D700D4A63D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 536FD6DD1B20D3D700D4A63D /* CNAB Rapido */;
+			targetProxy = 536FD6F11B20D3D700D4A63D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		536FD6E91B20D3D700D4A63D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				536FD6EA1B20D3D700D4A63D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		536FD6F81B20D3D700D4A63D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		536FD6F91B20D3D700D4A63D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		536FD6FB1B20D3D700D4A63D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "CNAB Rapido/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		536FD6FC1B20D3D700D4A63D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "CNAB Rapido/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		536FD6FE1B20D3D700D4A63D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CNAB RapidoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CNAB Rapido.app/Contents/MacOS/CNAB Rapido";
+			};
+			name = Debug;
+		};
+		536FD6FF1B20D3D700D4A63D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CNAB RapidoTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CNAB Rapido.app/Contents/MacOS/CNAB Rapido";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		536FD6D91B20D3D700D4A63D /* Build configuration list for PBXProject "CNAB Rapido" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				536FD6F81B20D3D700D4A63D /* Debug */,
+				536FD6F91B20D3D700D4A63D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		536FD6FA1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB Rapido" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				536FD6FB1B20D3D700D4A63D /* Debug */,
+				536FD6FC1B20D3D700D4A63D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RapidoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				536FD6FE1B20D3D700D4A63D /* Debug */,
+				536FD6FF1B20D3D700D4A63D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 536FD6D61B20D3D700D4A63D /* Project object */;
+}
