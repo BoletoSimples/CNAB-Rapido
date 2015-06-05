@@ -669,19 +669,19 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CNAB_Rapido" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="148"/>
+                        <rect key="frame" x="0.0" y="0.0" width="614" height="199"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uY6-ws-jWG">
-                                <rect key="frame" x="18" y="111" width="131" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Diretório a monitorar" id="Ojv-ke-9Y0">
+                                <rect key="frame" x="18" y="162" width="131" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Diretório a monitorar" id="Ojv-ke-9Y0">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-KI-jJQ">
-                                <rect key="frame" x="20" y="81" width="340" height="22"/>
+                                <rect key="frame" x="20" y="132" width="340" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="kvL-eq-aWy">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -689,7 +689,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqy-b2-Pi5">
-                                <rect key="frame" x="362" y="75" width="104" height="32"/>
+                                <rect key="frame" x="362" y="126" width="104" height="32"/>
                                 <buttonCell key="cell" type="push" title="Escolher..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nug-ZN-egD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -698,16 +698,72 @@
                                     <action selector="choosePath:" target="XfG-lQ-9wD" id="wNK-qj-FjZ"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dnb-Od-3Sh">
+                                <rect key="frame" x="18" y="107" width="66" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="API Token" id="mus-x7-6Aj">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-do-GrZ">
+                                <rect key="frame" x="20" y="77" width="496" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="FEP-03-w7Q">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6p-hk-huN">
+                                <rect key="frame" x="518" y="69" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Validar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MFE-by-sRZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="validateOrChangeToken:" target="XfG-lQ-9wD" id="3e3-Cy-zoV"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jrf-cx-U4l">
+                                <rect key="frame" x="18" y="58" width="284" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Para visualizar o seu Token de Acesso, visite:" id="ufu-a6-8Gl">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aop-ju-uof">
+                                <rect key="frame" x="20" y="34" width="373" height="22"/>
+                                <buttonCell key="cell" type="bevel" title="https://sandbox.boletosimples.com.br/conta/api/tokens" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" state="on" imageScaling="proportionallyDown" inset="2" id="frm-El-b1p">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="openTokenWebPage:" target="XfG-lQ-9wD" id="IWm-x3-aCA"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzW-Lm-eut">
+                                <rect key="frame" x="88" y="107" width="430" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" id="ag2-K4-s7X">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="monitor_path" destination="UsD-KI-jJQ" id="gzx-6u-hQV"/>
+                        <outlet property="apiToken" destination="Ryq-do-GrZ" id="BIr-fW-7gh"/>
                         <outlet property="monitoringPath" destination="UsD-KI-jJQ" id="tsD-4T-CC2"/>
+                        <outlet property="tokenButton" destination="s6p-hk-huN" id="i8B-FA-00R"/>
+                        <outlet property="tokenLink" destination="aop-ju-uof" id="jb8-7D-GI4"/>
+                        <outlet property="tokenMessage" destination="rzW-Lm-eut" id="Vcv-tb-pae"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="qbn-Nc-fFU"/>
             </objects>
-            <point key="canvasLocation" x="75" y="594"/>
+            <point key="canvasLocation" x="75" y="649.5"/>
         </scene>
     </scenes>
 </document>

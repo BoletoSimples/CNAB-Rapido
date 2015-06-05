@@ -12,6 +12,7 @@
 		536FD6E81B20D3D700D4A63D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E71B20D3D700D4A63D /* Images.xcassets */; };
 		536FD6EB1B20D3D700D4A63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E91B20D3D700D4A63D /* Main.storyboard */; };
 		536FD6F71B20D3D700D4A63D /* CNAB_RapidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */; };
+		536FD7011B22431C00D4A63D /* SimpleRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD7001B22431C00D4A63D /* SimpleRestClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CNAB RapidoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		536FD6F51B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNAB_RapidoTests.swift; sourceTree = "<group>"; };
+		536FD7001B22431C00D4A63D /* SimpleRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRestClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				536FD6E51B20D3D700D4A63D /* ViewController.swift */,
 				536FD6E71B20D3D700D4A63D /* Images.xcassets */,
 				536FD6E91B20D3D700D4A63D /* Main.storyboard */,
+				536FD7001B22431C00D4A63D /* SimpleRestClient.swift */,
 				536FD6E11B20D3D700D4A63D /* Supporting Files */,
 			);
 			path = "CNAB Rapido";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				536FD7011B22431C00D4A63D /* SimpleRestClient.swift in Sources */,
 				536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */,
 				536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */,
 			);
