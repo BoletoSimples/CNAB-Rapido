@@ -7,7 +7,7 @@
 //
 
 import Cocoa
-//import AppKit
+import Alamofire
 
 class ViewController: NSViewController {
 
@@ -18,6 +18,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var tokenMessage: NSTextField!
     var choosenDirectoryPath: String!
     var returnFiles: [NSURL]!
+    var json: JSON!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +42,11 @@ class ViewController: NSViewController {
     }
     
     @IBAction func validateOrChangeToken(sender: AnyObject) {
-        tokenMessage.hidden = true
+        tokenMessage.stringValue = ""
         if(tokenButton.title == "Validar") {
             if(apiToken.stringValue == "") {
                 tokenMessage.stringValue = "Preencha o Token!"
                 tokenMessage.textColor = NSColor.redColor()
-                tokenMessage.hidden = false
             }
             else {
                 if(validateToken()) {
@@ -54,13 +54,11 @@ class ViewController: NSViewController {
                     apiToken.enabled = false
                     tokenMessage.stringValue = "Token validado com sucesso!"
                     tokenMessage.textColor = NSColor.greenColor()
-                    tokenMessage.hidden = false
                     tokenButton.title = "Trocar"
                 }
                 else {
                     tokenMessage.stringValue = "Token inválido!"
                     tokenMessage.textColor = NSColor.redColor()
-                    tokenMessage.hidden = false
                 }
             }
         }
@@ -73,14 +71,43 @@ class ViewController: NSViewController {
     }
     
     func validateToken() -> Bool {
-        var client = SimpleRestClient(apiUrl: "https://sandbox.boletosimples.com.br/api/v1/")
-        client.call("GET", route: "userinfo") {
-            (data, urlResponse, error) in
-            var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
-            
-            println("dataString = \(dataString!)")
+        
+        let username = apiToken.stringValue
+        let password = "X"
+                
+        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
+            "User-Agent": "CNAB Rápido (contato@boletosimples.com.br)"
+        ]
+        
+        Alamofire.request(.GET, "https://sandbox.boletosimples.com.br/api/v1/userinfo")
+            .authenticate(user: username, password: password)
+            .validate()
+            .response {(request, response, _, error) in
+                println(response)
         }
-        return true;
+        return false
+        
+        
+//        var client = SimpleRestClient(apiUrl: "https://sandbox.boletosimples.com.br/api/v1/")
+//        client.request.addValue("CNAB Rápido (contato@boletosimples.com.br)", forHTTPHeaderField: "User-Agent")
+//        let username = apiToken.stringValue
+//        let password = "X"
+//        let loginString = NSString(format: "%@:%@", username, password)
+//        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
+//        let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
+//        client.request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
+//        
+//        client.call("GET", route: "userinfo") {
+//            (data, urlResponse, error) in
+//            var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
+//            var json = JSON(data: data)
+//        }
+//        println("json = \(json)")
+//        if json["error"] == nil || json["error"].isEmpty {
+//            return true
+//        } else  {
+//            return false
+//        }
     }
     
     @IBAction func openTokenWebPage(sender: AnyObject) {

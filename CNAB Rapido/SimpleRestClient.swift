@@ -11,7 +11,7 @@ import Foundation
 class SimpleRestClient {
     private var url : String = ""
     private let baseUrl : String
-    private let request : NSMutableURLRequest = NSMutableURLRequest()
+    internal let request : NSMutableURLRequest = NSMutableURLRequest()
     private let session: NSURLSession = NSURLSession.sharedSession()
     
     init(var apiUrl: String) {

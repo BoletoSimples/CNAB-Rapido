@@ -13,6 +13,9 @@
 		536FD6EB1B20D3D700D4A63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E91B20D3D700D4A63D /* Main.storyboard */; };
 		536FD6F71B20D3D700D4A63D /* CNAB_RapidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */; };
 		536FD7011B22431C00D4A63D /* SimpleRestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD7001B22431C00D4A63D /* SimpleRestClient.swift */; };
+		536FD7381B22533800D4A63D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD7371B22533800D4A63D /* SwiftyJSON.swift */; };
+		53BC1A6B1B2269BB00B21992 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BC1A661B22695400B21992 /* Alamofire.framework */; };
+		53BC1A6C1B2269BB00B21992 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53BC1A661B22695400B21992 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +26,56 @@
 			remoteGlobalIDString = 536FD6DD1B20D3D700D4A63D;
 			remoteInfo = "CNAB Rapido";
 		};
+		53BC1A631B22695400B21992 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		53BC1A651B22695400B21992 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		53BC1A671B22695400B21992 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		53BC1A691B22695400B21992 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		53BC1A6D1B2269BB00B21992 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DD67C0A1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		53BC1A5B1B2268B000B21992 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				53BC1A6C1B2269BB00B21992 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNAB Rapido.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +88,8 @@
 		536FD6F51B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNAB_RapidoTests.swift; sourceTree = "<group>"; };
 		536FD7001B22431C00D4A63D /* SimpleRestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleRestClient.swift; sourceTree = "<group>"; };
+		536FD7371B22533800D4A63D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53BC1A6B1B2269BB00B21992 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +117,7 @@
 				536FD6E01B20D3D700D4A63D /* CNAB Rapido */,
 				536FD6F31B20D3D700D4A63D /* CNAB RapidoTests */,
 				536FD6DF1B20D3D700D4A63D /* Products */,
+				53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +133,7 @@
 		536FD6E01B20D3D700D4A63D /* CNAB Rapido */ = {
 			isa = PBXGroup;
 			children = (
+				536FD7371B22533800D4A63D /* SwiftyJSON.swift */,
 				536FD6E31B20D3D700D4A63D /* AppDelegate.swift */,
 				536FD6E51B20D3D700D4A63D /* ViewController.swift */,
 				536FD6E71B20D3D700D4A63D /* Images.xcassets */,
@@ -112,6 +169,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		53BC1A5D1B22695400B21992 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53BC1A641B22695400B21992 /* Alamofire.framework */,
+				53BC1A661B22695400B21992 /* Alamofire.framework */,
+				53BC1A681B22695400B21992 /* Alamofire iOS Tests.xctest */,
+				53BC1A6A1B22695400B21992 /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -122,10 +190,12 @@
 				536FD6DA1B20D3D700D4A63D /* Sources */,
 				536FD6DB1B20D3D700D4A63D /* Frameworks */,
 				536FD6DC1B20D3D700D4A63D /* Resources */,
+				53BC1A5B1B2268B000B21992 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				53BC1A6E1B2269BB00B21992 /* PBXTargetDependency */,
 			);
 			name = "CNAB Rapido";
 			productName = "CNAB Rapido";
@@ -179,6 +249,12 @@
 			mainGroup = 536FD6D51B20D3D700D4A63D;
 			productRefGroup = 536FD6DF1B20D3D700D4A63D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 53BC1A5D1B22695400B21992 /* Products */;
+					ProjectRef = 53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				536FD6DD1B20D3D700D4A63D /* CNAB Rapido */,
@@ -186,6 +262,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		53BC1A641B22695400B21992 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 53BC1A631B22695400B21992 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53BC1A661B22695400B21992 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 53BC1A651B22695400B21992 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53BC1A681B22695400B21992 /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 53BC1A671B22695400B21992 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53BC1A6A1B22695400B21992 /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 53BC1A691B22695400B21992 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		536FD6DC1B20D3D700D4A63D /* Resources */ = {
@@ -214,6 +321,7 @@
 				536FD7011B22431C00D4A63D /* SimpleRestClient.swift in Sources */,
 				536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */,
 				536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */,
+				536FD7381B22533800D4A63D /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +340,11 @@
 			isa = PBXTargetDependency;
 			target = 536FD6DD1B20D3D700D4A63D /* CNAB Rapido */;
 			targetProxy = 536FD6F11B20D3D700D4A63D /* PBXContainerItemProxy */;
+		};
+		53BC1A6E1B2269BB00B21992 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire OSX";
+			targetProxy = 53BC1A6D1B2269BB00B21992 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -332,8 +445,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "CNAB Rapido/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -343,8 +461,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "CNAB Rapido/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -404,6 +527,7 @@
 				536FD6FC1B20D3D700D4A63D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RapidoTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +536,7 @@
 				536FD6FF1B20D3D700D4A63D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
