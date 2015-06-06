@@ -49,17 +49,26 @@ class ViewController: NSViewController {
                 tokenMessage.textColor = NSColor.redColor()
             }
             else {
-                if(validateToken()) {
-                    NSUserDefaults.standardUserDefaults().setObject(apiToken.stringValue, forKey: "apiToken")
-                    apiToken.enabled = false
-                    tokenMessage.stringValue = "Token validado com sucesso!"
-                    tokenMessage.textColor = NSColor.greenColor()
-                    tokenButton.title = "Trocar"
-                }
-                else {
-                    tokenMessage.stringValue = "Token inválido!"
-                    tokenMessage.textColor = NSColor.redColor()
-                }
+                self.tokenMessage.stringValue = "Validando..."
+                self.tokenMessage.textColor = NSColor.blueColor()
+                self.apiToken.enabled = false
+                self.tokenButton.enabled = false
+                validateToken(apiToken.stringValue, completionHandler: {
+                    valid in
+                    if(valid) {
+                        NSUserDefaults.standardUserDefaults().setObject(self.apiToken.stringValue, forKey: "apiToken")
+                        self.apiToken.enabled = false
+                        self.tokenMessage.stringValue = "Token validado com sucesso!"
+                        self.tokenMessage.textColor = NSColor.greenColor()
+                        self.tokenButton.title = "Trocar"
+                    }
+                    else {
+                        self.apiToken.enabled = true
+                        self.tokenMessage.stringValue = "Token inválido!"
+                        self.tokenMessage.textColor = NSColor.redColor()
+                    }
+                    self.tokenButton.enabled = true
+                })
             }
         }
         else {
@@ -70,44 +79,25 @@ class ViewController: NSViewController {
         }
     }
     
-    func validateToken() -> Bool {
+    func validateToken(apiToken: String, completionHandler: (Bool) -> Void) -> Void {
         
-        let username = apiToken.stringValue
-        let password = "X"
-                
         Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
             "User-Agent": "CNAB Rápido (contato@boletosimples.com.br)"
         ]
         
+        var credential = NSURLCredential(user: apiToken, password: "X", persistence: .ForSession)
         Alamofire.request(.GET, "https://sandbox.boletosimples.com.br/api/v1/userinfo")
-            .authenticate(user: username, password: password)
-            .validate()
-            .response {(request, response, _, error) in
-                println(response)
-        }
-        return false
-        
-        
-//        var client = SimpleRestClient(apiUrl: "https://sandbox.boletosimples.com.br/api/v1/")
-//        client.request.addValue("CNAB Rápido (contato@boletosimples.com.br)", forHTTPHeaderField: "User-Agent")
-//        let username = apiToken.stringValue
-//        let password = "X"
-//        let loginString = NSString(format: "%@:%@", username, password)
-//        let loginData: NSData = loginString.dataUsingEncoding(NSUTF8StringEncoding)!
-//        let base64LoginString = loginData.base64EncodedStringWithOptions(nil)
-//        client.request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-//        
-//        client.call("GET", route: "userinfo") {
-//            (data, urlResponse, error) in
-//            var dataString = NSString(data: data, encoding:NSUTF8StringEncoding)
-//            var json = JSON(data: data)
-//        }
-//        println("json = \(json)")
-//        if json["error"] == nil || json["error"].isEmpty {
-//            return true
-//        } else  {
-//            return false
-//        }
+            .authenticate(usingCredential: credential)
+            .responseJSON {
+                (request, response, json, error) in
+                if(json != nil) { var json = JSON(json!); }
+                if(error == nil && json != nil) {
+                    completionHandler(true)
+                }
+                else {
+                    completionHandler(false)
+                }
+            }
     }
     
     @IBAction func openTokenWebPage(sender: AnyObject) {
