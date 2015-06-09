@@ -16,6 +16,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var tokenLink: NSButton!
     @IBOutlet weak var tokenButton: NSButton!
     @IBOutlet weak var tokenMessage: NSTextField!
+
+    
     var choosenDirectoryPath: String!
     var returnFiles: [NSURL]!
     var json: JSON!
