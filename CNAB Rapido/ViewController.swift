@@ -131,7 +131,6 @@ class ViewController: NSViewController {
         }
         else {
             monitoringPath.stringValue = choosenDirectoryPath
-            detectFiles()
         }
         var apiTokenString = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String
         if(apiTokenString != nil && !apiTokenString!.isEmpty) {
@@ -140,35 +139,6 @@ class ViewController: NSViewController {
             tokenButton.title = "Trocar"
         }
     }
-    
-    func detectFiles() {
-        let defaultFileManager: NSFileManager = NSFileManager()
-        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
-        if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
-            for filePath in filePaths {
-                var file = NSURL(string: filePath as! String)
-                if(file != nil) { processFile(file!); }
-            }
-        }
-        
-    }
-    
-    func processFile(file: NSURL) {
-        if !fileIsRetorno(file) { return; }
-//        returnFiles.append(file);
-        println("ARQUIVO: " + file.lastPathComponent! + "\n")
-    }
-    
-    func fileIsRetorno(file: NSURL) -> Bool {
-        if(file.pathExtension != "ret") { return false; }
-        
-        let content = String(contentsOfFile: file.path!, encoding: NSUTF8StringEncoding, error: nil)
-        
-        if(content == nil) { return false; }
-        if(content!.hasPrefix("02RETORNO") != true) { return false; }
-        return true;
-    }
-
     
 }
 
