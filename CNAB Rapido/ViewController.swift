@@ -32,6 +32,14 @@ class ViewController: NSViewController {
         }
     }
 
+    @IBAction func copyToken(sender: AnyObject) {
+        let token = "57755ac6572e69a77e1917ec752f5d11179b2e2ec0d6769f0b8db5d9ed625819"
+        var pasteBoard = NSPasteboard.generalPasteboard()
+        pasteBoard.clearContents()
+        pasteBoard.writeObjects([token])
+        println("Copiado!")
+    }
+    
     @IBAction func choosePath(sender: AnyObject) {
         let directoryPicker: NSOpenPanel = NSOpenPanel()
         directoryPicker.allowsMultipleSelection = false
@@ -58,8 +66,8 @@ class ViewController: NSViewController {
                     if(valid) {
                         NSUserDefaults.standardUserDefaults().setObject(self.apiToken.stringValue, forKey: "apiToken")
                         self.apiToken.enabled = false
-                        self.tokenMessage.stringValue = "Token validado com sucesso!"
-                        self.tokenMessage.textColor = NSColor.greenColor()
+                        self.tokenMessage.stringValue = "Token validado com sucesso!"                        
+                        self.tokenMessage.textColor = NSColor(hexString: "#58CD46")
                         self.tokenButton.title = "Trocar"
                     }
                     else {

@@ -750,6 +750,16 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTz-lW-H6C">
+                                <rect key="frame" x="518" y="96" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Copiar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZQE-t6-lne">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="copyToken:" target="XfG-lQ-9wD" id="hRO-NG-iDU"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
