@@ -12,6 +12,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var statusMenu: NSMenu!
+    @IBOutlet weak var statusMenuItem: NSMenuItem!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
     let defaultFileManager: NSFileManager = NSFileManager()
@@ -20,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var apiTokenString: String = ""
     var detectedFiles: [NSURL] = []
     var uploadedFiles: [String] = []
+    
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -45,17 +47,29 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles") != nil) {
             uploadedFiles = NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles")! as! [String]
         }
-        
+        runIteration()
+    }
+    
+    func runIteration() {
         // If configuraion is valid, detect files and upload
         if(validConfiguration()) {
             NSLog("Valid Configuration")
             detectFiles()
             if(!detectedFiles.isEmpty) { uploadFiles(); }
+            var timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+            updateStatus("Última verificação às " + timestamp)
+        }
+        else {
+            updateStatus("Configurações pendentes.")
         }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
+    }
+    
+    func updateStatus(message: String) {
+        statusMenuItem.title = message
     }
     
     func validConfiguration() -> Bool {
@@ -70,6 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         for file in detectedFiles {
             if contains(uploadedFiles, file.path!) { continue; }
+            updateStatus("Enviando arquivo " + file.lastPathComponent! + "...")
             NSLog("Uploading " + file.path!)
             BoletoSimples.uploadFile(file, completionHandler: {
                 json in
@@ -96,6 +111,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func detectFiles() {
+        updateStatus("Verificando arquivos...")
         NSLog("Detecting Files")
         detectedFiles = []
         if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
@@ -103,6 +119,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 var file = NSURL(string: filePath as! String)
                 if file == nil { continue; }
                 if !fileIsRetorno(file!) { continue; }
+                if contains(uploadedFiles, file!.path!) { continue; }
                 detectedFiles.append(file!)
                 NSLog("File detected: " + file!.path!)
 //                notifyFile(file!)
@@ -125,6 +142,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(content == nil) { return false; }
         if(content!.hasPrefix("02RETORNO") != true) { return false; }
         return true;
+    }
+    
+    
+    @IBAction func runNow(sender: AnyObject) {
+        runIteration()
     }
     
     @IBAction func exitClicked(sender: NSMenuItem) {

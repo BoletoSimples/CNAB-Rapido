@@ -40,6 +40,11 @@ class ViewController: NSViewController {
         pasteBoard.writeObjects([token])
     }
     
+    @IBAction func openTokenWebPage(sender: AnyObject) {
+        let urlString = NSURL(string: "https://sandbox.boletosimples.com.br/conta/api/tokens")
+        NSWorkspace.sharedWorkspace().openURL(urlString!)
+    }
+    
     @IBAction func choosePath(sender: AnyObject) {
         let directoryPicker: NSOpenPanel = NSOpenPanel()
         directoryPicker.allowsMultipleSelection = false
@@ -93,11 +98,6 @@ class ViewController: NSViewController {
             userinfo in
             completionHandler(userinfo != nil)
         }
-    }
-    
-    @IBAction func openTokenWebPage(sender: AnyObject) {
-        let urlString = NSURL(string: "https://sandbox.boletosimples.com.br/conta/api/tokens")
-        NSWorkspace.sharedWorkspace().openURL(urlString!)
     }
     
     func chooseDirectory(choosenDirectory: NSURL!) {

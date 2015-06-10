@@ -644,10 +644,21 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CNAB_Rapido" customModuleProvider="target">
                     <connections>
                         <outlet property="statusMenu" destination="6Ch-G4-K4Y" id="niN-r7-lN5"/>
+                        <outlet property="statusMenuItem" destination="cfz-lg-y0C" id="r1e-YM-moX"/>
                     </connections>
                 </customObject>
                 <menu id="6Ch-G4-K4Y">
                     <items>
+                        <menuItem title="Status" enabled="NO" id="cfz-lg-y0C">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="lGC-t3-76U"/>
+                        <menuItem title="Rodar Agora" id="29g-B6-Ojx">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="runNow:" target="Voe-Tx-rLC" id="YUd-XY-yRH"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Configurações" id="yXz-Gi-Eru">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
