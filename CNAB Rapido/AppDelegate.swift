@@ -14,6 +14,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var statusMenu: NSMenu!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+    let defaultFileManager: NSFileManager = NSFileManager()
+    let notificationCenter: NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+    var choosenDirectoryPath: String = ""
+    var apiTokenString: String = ""
+    var detectedFiles: [NSURL] = []
+    var uploadedFiles: [String] = []
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -21,29 +27,66 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         icon!.setTemplate(true)
         statusItem.image = icon
         statusItem.menu = statusMenu
+        
+        // NSUserDefaults.standardUserDefaults().removeObjectForKey("uploadedFiles")
+        
+        // Set settings
+        choosenDirectoryPath = (NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String)!
+        apiTokenString = (NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String!)!
+        if(NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles") != nil) {
+            uploadedFiles = NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles")! as! [String]
+        }
+
+        if(validConfiguration()) {
+            detectFiles()
+            uploadFiles()
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
     
-    func detectFiles() {
-        var choosenDirectoryPath = NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String
-        let defaultFileManager: NSFileManager = NSFileManager()
-        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath!)
-        if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath!, error: nil) {
-            for filePath in filePaths {
-                var file = NSURL(string: filePath as! String)
-                if(file != nil) { processFile(file!); }
-            }
-        }
+    func validConfiguration() -> Bool {
+        var checkValidation = NSFileManager.defaultManager()
         
+        var isDir: ObjCBool = false
+        return (checkValidation.fileExistsAtPath(choosenDirectoryPath, isDirectory: &isDir) && isDir && apiTokenString != "")
     }
     
-    func processFile(file: NSURL) {
-        if !fileIsRetorno(file) { return; }
-        //        returnFiles.append(file);
-        println("ARQUIVO: " + file.lastPathComponent! + "\n")
+    func uploadFiles() {
+        for file in detectedFiles {
+            if contains(uploadedFiles, file.path!) { continue; }
+            println("UPLOADING " + file.lastPathComponent! + "\n")
+            uploadedFiles.append(file.path!)
+//            var error = NSError()
+//            var atts:NSDictionary = defaultFileManager.attributesOfItemAtPath(file.path!, error: NSErrorPointer())!
+//            var creationDate:AnyObject = atts["NSFileCreationDate"]!
+//            var modificationDate:AnyObject = atts["NSFileModificationDate"]!
+//            NSLog(creationDate.description)
+//            NSLog(modificationDate.description)
+        }
+        NSUserDefaults.standardUserDefaults().setObject(uploadedFiles, forKey: "uploadedFiles")
+    }
+    
+    func detectFiles() {
+        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
+        if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
+            for filePath in filePaths {
+                var file = NSURL(string: filePath as! String)
+                if file == nil { continue; }
+                if !fileIsRetorno(file!) { continue; }
+                detectedFiles.append(file!)
+//                notifyFile(file!)
+            }
+        }
+    }
+    
+    func notifyFile(file: NSURL) {
+        var notification = NSUserNotification()
+        notification.title = file.path!
+        notification.informativeText = "Novo arquivo detectado."
+        notificationCenter.deliverNotification(notification)
     }
     
     func fileIsRetorno(file: NSURL) -> Bool {
