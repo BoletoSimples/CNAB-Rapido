@@ -38,7 +38,6 @@ class ViewController: NSViewController {
         var pasteBoard = NSPasteboard.generalPasteboard()
         pasteBoard.clearContents()
         pasteBoard.writeObjects([token])
-        println("Copiado!")
     }
     
     @IBAction func choosePath(sender: AnyObject) {

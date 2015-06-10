@@ -31,14 +31,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         start();
     }
     
-    internal func start() {
+    func start() {
         NSLog("Application Started")
-        // Set settings
+        // Get choosen directory path and change current directory
         choosenDirectoryPath = (NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String)!
+        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
+
+        // Get apiToken and configure Boleto Simples
         apiTokenString = (NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String!)!
+        BoletoSimples.configure(apiTokenString)
+
+        // Get uploaded files
         if(NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles") != nil) {
             uploadedFiles = NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles")! as! [String]
         }
+        
+        // If configuraion is valid, detect files and upload
         if(validConfiguration()) {
             NSLog("Valid Configuration")
             detectFiles()
@@ -74,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setObject(uploadedFiles, forKey: "uploadedFiles")
     }
     
-    internal func restart() {
+    func restart() {
         uploadedFiles = []
         NSUserDefaults.standardUserDefaults().removeObjectForKey("uploadedFiles")
         start()
@@ -83,7 +91,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func detectFiles() {
         NSLog("Detecting Files...")
         detectedFiles = []
-        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
         if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
             for filePath in filePaths {
                 var file = NSURL(string: filePath as! String)
@@ -114,7 +121,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func exitClicked(sender: NSMenuItem) {
-        println("Saindo...")
         exit(0)
     }
     
