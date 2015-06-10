@@ -667,7 +667,8 @@
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="R4n-cJ-dNj"/>
-                        <menuItem title="Sair" keyEquivalent="q" id="AEm-rU-cqw">
+                        <menuItem title="Sair" id="AEm-rU-cqw">
+                            <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="exitClicked:" target="Voe-Tx-rLC" id="eGB-cM-kBB"/>
                             </connections>
