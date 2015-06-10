@@ -13,6 +13,7 @@
 		536FD6EB1B20D3D700D4A63D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E91B20D3D700D4A63D /* Main.storyboard */; };
 		536FD6F71B20D3D700D4A63D /* CNAB_RapidoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */; };
 		536FD7381B22533800D4A63D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD7371B22533800D4A63D /* SwiftyJSON.swift */; };
+		53A229251B27C9D10095FB86 /* BoletoSimples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53A229241B27C9D10095FB86 /* BoletoSimples.swift */; };
 		53BC1A6B1B2269BB00B21992 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53BC1A661B22695400B21992 /* Alamofire.framework */; };
 		53BC1A6C1B2269BB00B21992 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53BC1A661B22695400B21992 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53BC1A701B26840F00B21992 /* SwiftColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BC1A6F1B26840F00B21992 /* SwiftColors.swift */; };
@@ -88,6 +89,7 @@
 		536FD6F51B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNAB_RapidoTests.swift; sourceTree = "<group>"; };
 		536FD7371B22533800D4A63D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		53A229241B27C9D10095FB86 /* BoletoSimples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoletoSimples.swift; sourceTree = "<group>"; };
 		53BC1A5C1B22695400B21992 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		53BC1A6F1B26840F00B21992 /* SwiftColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				536FD6E71B20D3D700D4A63D /* Images.xcassets */,
 				536FD6E91B20D3D700D4A63D /* Main.storyboard */,
 				536FD6E11B20D3D700D4A63D /* Supporting Files */,
+				53A229241B27C9D10095FB86 /* BoletoSimples.swift */,
 			);
 			path = "CNAB Rapido";
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */,
 				536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */,
+				53A229251B27C9D10095FB86 /* BoletoSimples.swift in Sources */,
 				536FD7381B22533800D4A63D /* SwiftyJSON.swift in Sources */,
 				53BC1A701B26840F00B21992 /* SwiftColors.swift in Sources */,
 			);

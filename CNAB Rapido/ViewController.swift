@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import Alamofire
 
 class ViewController: NSViewController {
 
@@ -90,24 +89,11 @@ class ViewController: NSViewController {
     }
     
     func validateToken(apiToken: String, completionHandler: (Bool) -> Void) -> Void {
-        
-        Alamofire.Manager.sharedInstance.session.configuration.HTTPAdditionalHeaders = [
-            "User-Agent": "CNAB Rápido (contato@boletosimples.com.br)"
-        ]
-        
-        var credential = NSURLCredential(user: apiToken, password: "X", persistence: .ForSession)
-        Alamofire.request(.GET, "https://sandbox.boletosimples.com.br/api/v1/userinfo")
-            .authenticate(usingCredential: credential)
-            .responseJSON {
-                (request, response, json, error) in
-                if(json != nil) { var json = JSON(json!); }
-                if(error == nil && json != nil) {
-                    completionHandler(true)
-                }
-                else {
-                    completionHandler(false)
-                }
-            }
+        BoletoSimples.configure(apiToken)
+        BoletoSimples.userInfo() {
+            userinfo in
+            completionHandler(userinfo != nil)
+        }
     }
     
     @IBAction func openTokenWebPage(sender: AnyObject) {
