@@ -41,7 +41,7 @@ class BoletoSimples {
 
     }
     
-    class func uploadFile(fileToUpload: NSURL, completionHandler: (AnyObject?) -> Void) -> Void {
+    class func uploadFile(fileToUpload: NSURL, completionHandler: (JSON) -> Void) -> Void {
         var fileContent = String(contentsOfFile: fileToUpload.path!, encoding: NSUTF8StringEncoding, error: nil)
         let fileData = (fileContent! as NSString).dataUsingEncoding(NSUTF8StringEncoding)
         self.manager.POST("https://sandbox.boletosimples.com.br/api/v1/cnabs", parameters: [],
@@ -50,6 +50,8 @@ class BoletoSimples {
             },
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
                 NSLog("Arquivo enviado com sucesso: " + fileToUpload.lastPathComponent!)
+                var json = JSON(operation.responseString)
+                completionHandler(json)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
                 NSLog("Erro ao enviar o arquivo: " + fileToUpload.lastPathComponent!)

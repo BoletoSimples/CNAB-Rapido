@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func uploadFiles() {
-        NSLog("Uploading Files...")
+        NSLog("Uploading Files")
 
         for file in detectedFiles {
             if contains(uploadedFiles, file.path!) { continue; }
@@ -75,8 +75,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 json in
                 if(json != nil) {
                     NSLog("Uploaded " + file.path!)
-                    NSLog(json!.description)
                     self.uploadedFiles.append(file.path!);
+                    NSUserDefaults.standardUserDefaults().setObject(self.uploadedFiles, forKey: "uploadedFiles")
                 }
             })
 
@@ -87,7 +87,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            NSLog(creationDate.description)
 //            NSLog(modificationDate.description)
         }
-        NSUserDefaults.standardUserDefaults().setObject(uploadedFiles, forKey: "uploadedFiles")
     }
     
     func restart() {
@@ -97,7 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func detectFiles() {
-        NSLog("Detecting Files...")
+        NSLog("Detecting Files")
         detectedFiles = []
         if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
             for filePath in filePaths {
