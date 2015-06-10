@@ -71,7 +71,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for file in detectedFiles {
             if contains(uploadedFiles, file.path!) { continue; }
             NSLog("Uploading " + file.path!)
-            uploadedFiles.append(file.path!)
+            BoletoSimples.uploadFile(file, completionHandler: {
+                json in
+                if(json != nil) {
+                    NSLog("Uploaded " + file.path!)
+                    NSLog(json!.description)
+                    self.uploadedFiles.append(file.path!);
+                }
+            })
+
 //            var error = NSError()
 //            var atts:NSDictionary = defaultFileManager.attributesOfItemAtPath(file.path!, error: NSErrorPointer())!
 //            var creationDate:AnyObject = atts["NSFileCreationDate"]!
