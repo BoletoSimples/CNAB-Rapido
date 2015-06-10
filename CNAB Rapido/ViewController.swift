@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var tokenButton: NSButton!
     @IBOutlet weak var tokenMessage: NSTextField!
 
-    
+    var myDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     var choosenDirectoryPath: String!
     var returnFiles: [NSURL]!
     var json: JSON!
@@ -115,12 +115,13 @@ class ViewController: NSViewController {
         NSWorkspace.sharedWorkspace().openURL(urlString!)
     }
     
-    func chooseDirectory(choosenDirectory: NSURL?) {
-        if(choosenDirectory != nil) {
-            NSUserDefaults.standardUserDefaults().setObject(choosenDirectory!.path!, forKey: "choosenDirectoryPath")
-            println("ESCOLHIDO: " + choosenDirectory!.path! + "\n")
-            preferencesLoaded()
-        }
+    func chooseDirectory(choosenDirectory: NSURL!) {
+        if(choosenDirectory == nil) { return; }
+        if(choosenDirectoryPath == choosenDirectory.path!) { return; }
+        NSUserDefaults.standardUserDefaults().setObject(choosenDirectory.path!, forKey: "choosenDirectoryPath")
+        NSLog("Directory choosed: " + choosenDirectory!.path!)
+        myDelegate.restart()
+        preferencesLoaded()
     }
     
     func preferencesLoaded() {

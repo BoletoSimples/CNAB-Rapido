@@ -28,18 +28,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.image = icon
         statusItem.menu = statusMenu
         
-        // NSUserDefaults.standardUserDefaults().removeObjectForKey("uploadedFiles")
-        
+        start();
+    }
+    
+    internal func start() {
+        NSLog("Application Started")
         // Set settings
         choosenDirectoryPath = (NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String)!
         apiTokenString = (NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String!)!
         if(NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles") != nil) {
             uploadedFiles = NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles")! as! [String]
         }
-
         if(validConfiguration()) {
+            NSLog("Valid Configuration")
             detectFiles()
-            uploadFiles()
+            if(!detectedFiles.isEmpty) { uploadFiles(); }
         }
     }
 
@@ -55,9 +58,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func uploadFiles() {
+        NSLog("Uploading Files...")
+
         for file in detectedFiles {
             if contains(uploadedFiles, file.path!) { continue; }
-            println("UPLOADING " + file.lastPathComponent! + "\n")
+            NSLog("Uploading " + file.path!)
             uploadedFiles.append(file.path!)
 //            var error = NSError()
 //            var atts:NSDictionary = defaultFileManager.attributesOfItemAtPath(file.path!, error: NSErrorPointer())!
@@ -69,7 +74,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSUserDefaults.standardUserDefaults().setObject(uploadedFiles, forKey: "uploadedFiles")
     }
     
+    internal func restart() {
+        uploadedFiles = []
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("uploadedFiles")
+        start()
+    }
+    
     func detectFiles() {
+        NSLog("Detecting Files...")
+        detectedFiles = []
         defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
         if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
             for filePath in filePaths {
@@ -77,6 +90,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if file == nil { continue; }
                 if !fileIsRetorno(file!) { continue; }
                 detectedFiles.append(file!)
+                NSLog("File detected: " + file!.path!)
 //                notifyFile(file!)
             }
         }
