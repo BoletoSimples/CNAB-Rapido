@@ -26,7 +26,7 @@ class ViewController: NSViewController {
         preferencesLoaded()
         // Do any additional setup after loading the view.
     }
-
+    
     override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
@@ -113,11 +113,10 @@ class ViewController: NSViewController {
         monitoringPath.enabled = false
         choosenDirectoryPath = NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String
         if(choosenDirectoryPath == nil) {
-            // Define um valor padrão
+            var choosenDirectoryPath: String = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true)[0] as! String
+            chooseDirectory(NSURL(fileURLWithPath: choosenDirectoryPath))
         }
-        else {
-            monitoringPath.stringValue = choosenDirectoryPath
-        }
+        monitoringPath.stringValue = choosenDirectoryPath
         var apiTokenString = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String
         if(apiTokenString != nil && !apiTokenString!.isEmpty) {
             apiToken.enabled = false

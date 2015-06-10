@@ -35,17 +35,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func start() {
         NSLog("Application Started")
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
         // Get choosen directory path and change current directory
-        choosenDirectoryPath = (NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String)!
-        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
+        if(userDefaults.objectForKey("choosenDirectoryPath") != nil) {
+            choosenDirectoryPath = (userDefaults.objectForKey("choosenDirectoryPath") as? String)!
+            defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
+        }
 
         // Get apiToken and configure Boleto Simples
-        apiTokenString = (NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String!)!
-        BoletoSimples.configure(apiTokenString)
+        if(userDefaults.objectForKey("apiToken") != nil) {
+            apiTokenString = (userDefaults.objectForKey("apiToken") as? String!)!
+            BoletoSimples.configure(apiTokenString)
+        }
 
         // Get uploaded files
-        if(NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles") != nil) {
-            uploadedFiles = NSUserDefaults.standardUserDefaults().objectForKey("uploadedFiles")! as! [String]
+        if(userDefaults.objectForKey("uploadedFiles") != nil) {
+            uploadedFiles = userDefaults.objectForKey("uploadedFiles")! as! [String]
         }
         runIteration()
     }
