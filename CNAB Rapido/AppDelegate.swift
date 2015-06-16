@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import EonilFileSystemEvents
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -21,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var apiTokenString: String = ""
     var detectedFiles: [NSURL] = []
     var uploadedFiles: [String] = []
-    
+    var monitor: FileSystemEventMonitor? = nil
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -31,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.menu = statusMenu
         
         start();
+        
     }
     
     func start() {
@@ -53,21 +55,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(userDefaults.objectForKey("uploadedFiles") != nil) {
             uploadedFiles = userDefaults.objectForKey("uploadedFiles")! as! [String]
         }
-        runIteration()
-    }
-    
-    func runIteration() {
-        // If configuraion is valid, detect files and upload
+        
+        // Start monitoring
         if(validConfiguration()) {
             NSLog("Valid Configuration")
-            detectFiles()
-            if(!detectedFiles.isEmpty) { uploadFiles(); }
-            var timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
-            updateStatus("Última verificação às " + timestamp)
+            
+            monitor = FileSystemEventMonitor(pathsToWatch: [choosenDirectoryPath], callback: { (events) -> () in
+                NSLog("Directory changed")
+            })
+
+//            var mypath: CFStringRef = choosenDirectoryPath
+//            var pathsToWatch: CFArrayRef = CFArrayCreate(kCFAllocatorDefault, [choosenDirectoryPath], 1, nil)
+//            var callBackInfo: FSEventStreamContext
+//            var stream = FSEventStreamCreate(nil, &directoryChanged, callBackInfo, pathsToWatch, kFSEventStreamEventIdSinceNow, 3.0, kFSEventStreamCreateFlagNone)
+            runIteration()
         }
         else {
             updateStatus("Configurações pendentes.")
         }
+    }
+    
+    func runIteration() {
+        detectFiles()
+        if(!detectedFiles.isEmpty) { uploadFiles(); }
+        var timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+        updateStatus("Última verificação às " + timestamp)
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
