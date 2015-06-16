@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
-        let icon = NSImage(named: "statusIcon")
+        let icon = NSImage(named: "menuIcon")
         icon!.setTemplate(true)
         statusItem.image = icon
         statusItem.menu = statusMenu
@@ -61,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSLog("Valid Configuration")
             
             monitor = FileSystemEventMonitor(pathsToWatch: [choosenDirectoryPath], callback: { (events) -> () in
-                NSLog("Directory changed")
+                self.runIteration()
             })
 
 //            var mypath: CFStringRef = choosenDirectoryPath
