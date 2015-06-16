@@ -55,7 +55,6 @@ class BoletoSimples {
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
                 NSLog("Erro ao enviar o arquivo: " + fileToUpload.lastPathComponent!)
-                NSLog(operation.responseString)
         })
     }
 
