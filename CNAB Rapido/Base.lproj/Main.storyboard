@@ -702,11 +702,11 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="CNAB_Rapido" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="614" height="199"/>
+                        <rect key="frame" x="0.0" y="0.0" width="614" height="221"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uY6-ws-jWG">
-                                <rect key="frame" x="18" y="162" width="131" height="17"/>
+                                <rect key="frame" x="18" y="184" width="131" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="Diretório a monitorar" id="Ojv-ke-9Y0">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -714,7 +714,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UsD-KI-jJQ">
-                                <rect key="frame" x="20" y="132" width="340" height="22"/>
+                                <rect key="frame" x="20" y="154" width="340" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="kvL-eq-aWy">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -722,7 +722,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aqy-b2-Pi5">
-                                <rect key="frame" x="362" y="126" width="104" height="32"/>
+                                <rect key="frame" x="362" y="148" width="104" height="32"/>
                                 <buttonCell key="cell" type="push" title="Escolher..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nug-ZN-egD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -732,7 +732,7 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dnb-Od-3Sh">
-                                <rect key="frame" x="18" y="107" width="66" height="17"/>
+                                <rect key="frame" x="18" y="129" width="66" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" title="API Token" id="mus-x7-6Aj">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -740,7 +740,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryq-do-GrZ">
-                                <rect key="frame" x="20" y="77" width="496" height="22"/>
+                                <rect key="frame" x="20" y="99" width="496" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="FEP-03-w7Q">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -748,7 +748,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6p-hk-huN">
-                                <rect key="frame" x="518" y="69" width="82" height="32"/>
+                                <rect key="frame" x="518" y="91" width="82" height="32"/>
                                 <buttonCell key="cell" type="push" title="Validar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MFE-by-sRZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -758,7 +758,7 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jrf-cx-U4l">
-                                <rect key="frame" x="18" y="58" width="284" height="17"/>
+                                <rect key="frame" x="18" y="80" width="284" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Para visualizar o seu Token de Acesso, visite:" id="ufu-a6-8Gl">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -766,7 +766,7 @@
                                 </textFieldCell>
                             </textField>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aop-ju-uof">
-                                <rect key="frame" x="20" y="34" width="373" height="22"/>
+                                <rect key="frame" x="20" y="56" width="373" height="22"/>
                                 <buttonCell key="cell" type="bevel" title="https://sandbox.boletosimples.com.br/conta/api/tokens" bezelStyle="regularSquare" imagePosition="overlaps" alignment="left" state="on" imageScaling="proportionallyDown" inset="2" id="frm-El-b1p">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -776,7 +776,7 @@
                                 </buttonCell>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rzW-Lm-eut">
-                                <rect key="frame" x="88" y="107" width="430" height="17"/>
+                                <rect key="frame" x="88" y="129" width="430" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" id="ag2-K4-s7X">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -784,7 +784,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xTz-lW-H6C">
-                                <rect key="frame" x="518" y="96" width="81" height="32"/>
+                                <rect key="frame" x="518" y="118" width="81" height="32"/>
                                 <buttonCell key="cell" type="push" title="Copiar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZQE-t6-lne">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -793,10 +793,21 @@
                                     <action selector="copyToken:" target="XfG-lQ-9wD" id="hRO-NG-iDU"/>
                                 </connections>
                             </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEc-tH-LAb">
+                                <rect key="frame" x="18" y="18" width="332" height="18"/>
+                                <buttonCell key="cell" type="check" title="Iniciar automaticamente ao reiniciar o computador" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="g4P-Eq-Xna">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="toggleAutoStart:" target="XfG-lQ-9wD" id="3c6-Y2-sQn"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="apiToken" destination="Ryq-do-GrZ" id="BIr-fW-7gh"/>
+                        <outlet property="autoStart" destination="CEc-tH-LAb" id="gCs-rm-WhC"/>
                         <outlet property="monitoringPath" destination="UsD-KI-jJQ" id="tsD-4T-CC2"/>
                         <outlet property="tokenButton" destination="s6p-hk-huN" id="i8B-FA-00R"/>
                         <outlet property="tokenLink" destination="aop-ju-uof" id="jb8-7D-GI4"/>
@@ -806,7 +817,7 @@
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="qbn-Nc-fFU"/>
             </objects>
-            <point key="canvasLocation" x="75" y="649.5"/>
+            <point key="canvasLocation" x="75" y="660.5"/>
         </scene>
     </scenes>
 </document>

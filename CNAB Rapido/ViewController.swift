@@ -15,6 +15,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var tokenLink: NSButton!
     @IBOutlet weak var tokenButton: NSButton!
     @IBOutlet weak var tokenMessage: NSTextField!
+    @IBOutlet weak var autoStart: NSButton!
 
     var myDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     var choosenDirectoryPath: String!
@@ -52,6 +53,10 @@ class ViewController: NSViewController {
         directoryPicker.canChooseFiles = false
         directoryPicker.runModal()
         chooseDirectory(directoryPicker.URL!)
+    }
+    
+    @IBAction func toggleAutoStart(sender: AnyObject) {
+        myDelegate.toggleLaunchAtStartup()
     }
     
     @IBAction func validateOrChangeToken(sender: AnyObject) {
@@ -110,6 +115,9 @@ class ViewController: NSViewController {
     }
     
     func preferencesLoaded() {
+        if(myDelegate.applicationIsInStartUpItems() && autoStart.state == NSOffState) {
+            autoStart.setNextState()
+        }
         monitoringPath.enabled = false
         choosenDirectoryPath = NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String
         if(choosenDirectoryPath == nil) {
