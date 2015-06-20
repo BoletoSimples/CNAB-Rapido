@@ -8,14 +8,12 @@
 
 import Foundation
 
-let NSURLRequestReloadIgnoringLocalCacheData = 1
-
 class BoletoSimples {
     
     static var manager = AFHTTPRequestOperationManager()
     
     class func configure(accessToken: String!) {
-        NSLog("BoletoSimples.configured called")
+        LogManager.add("BoletoSimples configurado", updateMenu: false)
 
         // Set credentials
         var credential = NSURLCredential(user: accessToken, password: "X", persistence: .None)
@@ -29,13 +27,12 @@ class BoletoSimples {
     class func userInfo(completionHandler: (JSON) -> Void) -> Void {
         self.manager.GET("https://sandbox.boletosimples.com.br/api/v1/userinfo", parameters: [],
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                NSLog("Userinfo success: " + operation.responseString)
+                LogManager.add("Userinfo success: " + operation.responseString, updateMenu: false)
                 var json = JSON(operation.responseString)
                 completionHandler(json)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                NSLog("Userinfo error: " + operation.responseString)
-                NSLog(operation.responseString)
+                LogManager.add("Userinfo error: " + operation.responseString, updateMenu: false)
                 completionHandler(nil)
         })
 
@@ -49,12 +46,13 @@ class BoletoSimples {
                 data.appendPartWithFileData(fileData, name: "cnab[file]", fileName: fileToUpload.lastPathComponent!, mimeType: "text/plain")
             },
             success: { (operation: AFHTTPRequestOperation!, responseObject: AnyObject!) in
-                NSLog("Arquivo enviado com sucesso: " + fileToUpload.lastPathComponent!)
+                LogManager.add("Arquivo " + fileToUpload.lastPathComponent! + " enviado com sucesso!", updateMenu: true)
                 var json = JSON(operation.responseString)
                 completionHandler(json)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) in
-                NSLog("Erro ao enviar o arquivo: " + fileToUpload.lastPathComponent!)
+                LogManager.add("Erro ao enviar o arquivo " + fileToUpload.lastPathComponent!, updateMenu: true)
+                LogManager.add(error.description, updateMenu: false)
         })
     }
 

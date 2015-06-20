@@ -16,7 +16,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var tokenButton: NSButton!
     @IBOutlet weak var tokenMessage: NSTextField!
     @IBOutlet weak var autoStart: NSButton!
-
+    @IBOutlet weak var environmentRadio: NSMatrix!
+    
     var myDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
     var choosenDirectoryPath: String!
     var returnFiles: [NSURL]!
@@ -42,7 +43,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openTokenWebPage(sender: AnyObject) {
-        let urlString = NSURL(string: "https://sandbox.boletosimples.com.br/conta/api/tokens")
+        let urlString = NSURL(string: tokenLink.stringValue)
         NSWorkspace.sharedWorkspace().openURL(urlString!)
     }
     
@@ -53,6 +54,12 @@ class ViewController: NSViewController {
         directoryPicker.canChooseFiles = false
         directoryPicker.runModal()
         chooseDirectory(directoryPicker.URL!)
+    }
+    
+    
+    @IBAction func environmentChange(sender: AnyObject) {
+        //NSLog(environmentRadio.value())
+        preferencesLoaded()
     }
     
     @IBAction func toggleAutoStart(sender: AnyObject) {
@@ -123,6 +130,17 @@ class ViewController: NSViewController {
         if(choosenDirectoryPath == nil) {
             var choosenDirectoryPath: String = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true)[0] as! String
             chooseDirectory(NSURL(fileURLWithPath: choosenDirectoryPath))
+        }
+        var boletosimplesEnvironment = NSUserDefaults.standardUserDefaults().objectForKey("boletosimplesEnvironment") as? String
+        if(boletosimplesEnvironment == nil) {
+            boletosimplesEnvironment = "sandbox"
+        }
+        
+        if(boletosimplesEnvironment == "sandbox") {
+            tokenLink.stringValue = "https://sandbox.boletosimples.com.br/conta/api/tokens"
+        }
+        else if(boletosimplesEnvironment == "production") {
+            tokenLink.stringValue = "https://boletosimples.com.br/conta/api/tokens"
         }
         monitoringPath.stringValue = choosenDirectoryPath
         var apiTokenString = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53211BF11B34BC8A00556295 /* EonilFileSystemEvents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53211BEA1B34BC7000556295 /* EonilFileSystemEvents.framework */; };
+		53211BF21B34BD8600556295 /* EonilFileSystemEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53211BEA1B34BC7000556295 /* EonilFileSystemEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		53211BFE1B34CE6D00556295 /* LogsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53211BFD1B34CE6D00556295 /* LogsController.swift */; };
+		53211C001B34D14400556295 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53211BFF1B34D14400556295 /* LogManager.swift */; };
 		536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6E31B20D3D700D4A63D /* AppDelegate.swift */; };
 		536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6E51B20D3D700D4A63D /* ViewController.swift */; };
 		536FD6E81B20D3D700D4A63D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E71B20D3D700D4A63D /* Images.xcassets */; };
@@ -27,6 +31,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		53211BE91B34BC7000556295 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D970A61A1569090037649F;
+			remoteInfo = EonilFileSystemEvents;
+		};
+		53211BEB1B34BC7000556295 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45D970961A155DD50037649F;
+			remoteInfo = InternalTester;
+		};
+		53211BED1B34BC7000556295 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45DA95801A69F1610091410B;
+			remoteInfo = InternalTester4;
+		};
+		53211BEF1B34BC7000556295 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 45BF99C51A131E3A004E4E2E;
+			remoteInfo = TestdriveApp;
+		};
 		536FD6F11B20D3D700D4A63D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 536FD6D61B20D3D700D4A63D /* Project object */;
@@ -43,6 +75,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				53211BF21B34BD8600556295 /* EonilFileSystemEvents.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,6 +83,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = ../FileSystemEvents/Project/EonilFileSystemEvents.xcodeproj; sourceTree = "<group>"; };
+		53211BFD1B34CE6D00556295 /* LogsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsController.swift; sourceTree = "<group>"; };
+		53211BFF1B34D14400556295 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNAB Rapido.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		536FD6E21B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6E31B20D3D700D4A63D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53211BF11B34BC8A00556295 /* EonilFileSystemEvents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,9 +139,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53211BE31B34BC6F00556295 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53211BEA1B34BC7000556295 /* EonilFileSystemEvents.framework */,
+				53211BEC1B34BC7000556295 /* InternalTester */,
+				53211BEE1B34BC7000556295 /* InternalTester4.app */,
+				53211BF01B34BC7000556295 /* TestdriveApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		536FD6D51B20D3D700D4A63D = {
 			isa = PBXGroup;
 			children = (
+				53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */,
 				536FD6E01B20D3D700D4A63D /* CNAB Rapido */,
 				536FD6F31B20D3D700D4A63D /* CNAB RapidoTests */,
 				536FD6DF1B20D3D700D4A63D /* Products */,
@@ -133,6 +182,8 @@
 				536FD6E11B20D3D700D4A63D /* Supporting Files */,
 				53A229241B27C9D10095FB86 /* BoletoSimples.swift */,
 				53D7AFCB1B27E23800F9DC1F /* bridge.h */,
+				53211BFD1B34CE6D00556295 /* LogsController.swift */,
+				53211BFF1B34D14400556295 /* LogManager.swift */,
 			);
 			path = "CNAB Rapido";
 			sourceTree = "<group>";
@@ -256,6 +307,12 @@
 			mainGroup = 536FD6D51B20D3D700D4A63D;
 			productRefGroup = 536FD6DF1B20D3D700D4A63D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 53211BE31B34BC6F00556295 /* Products */;
+					ProjectRef = 53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				536FD6DD1B20D3D700D4A63D /* CNAB Rapido */,
@@ -263,6 +320,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		53211BEA1B34BC7000556295 /* EonilFileSystemEvents.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EonilFileSystemEvents.framework;
+			remoteRef = 53211BE91B34BC7000556295 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53211BEC1B34BC7000556295 /* InternalTester */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = InternalTester;
+			remoteRef = 53211BEB1B34BC7000556295 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53211BEE1B34BC7000556295 /* InternalTester4.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = InternalTester4.app;
+			remoteRef = 53211BED1B34BC7000556295 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		53211BF01B34BC7000556295 /* TestdriveApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestdriveApp.app;
+			remoteRef = 53211BEF1B34BC7000556295 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		536FD6DC1B20D3D700D4A63D /* Resources */ = {
@@ -290,11 +378,13 @@
 			files = (
 				53D7AFE71B27E3C600F9DC1F /* AFURLConnectionOperation.m in Sources */,
 				53D7AFE21B27E3C600F9DC1F /* AFHTTPRequestOperation.m in Sources */,
+				53211BFE1B34CE6D00556295 /* LogsController.swift in Sources */,
 				53D7AFE51B27E3C600F9DC1F /* AFNetworkReachabilityManager.m in Sources */,
 				53D7AFEA1B27E3C600F9DC1F /* AFURLSessionManager.m in Sources */,
 				53D7AFE81B27E3C600F9DC1F /* AFURLRequestSerialization.m in Sources */,
 				536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */,
 				53D7AFE91B27E3C600F9DC1F /* AFURLResponseSerialization.m in Sources */,
+				53211C001B34D14400556295 /* LogManager.swift in Sources */,
 				536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */,
 				53A229251B27C9D10095FB86 /* BoletoSimples.swift in Sources */,
 				53D7AFE31B27E3C600F9DC1F /* AFHTTPRequestOperationManager.m in Sources */,

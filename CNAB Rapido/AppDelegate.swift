@@ -36,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func start() {
-        NSLog("Application Started")
+        LogManager.add("Aplicativo Iniciado", updateMenu: false)
         var userDefaults = NSUserDefaults.standardUserDefaults()
         
         // Get choosen directory path and change current directory
@@ -58,36 +58,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         // Start monitoring
         if(validConfiguration()) {
-            NSLog("Valid Configuration")
+            LogManager.add("Configuração válida", updateMenu: false)
             
             monitor = FileSystemEventMonitor(pathsToWatch: [choosenDirectoryPath], callback: { (events) -> () in
                 self.runIteration()
             })
 
-//            var mypath: CFStringRef = choosenDirectoryPath
-//            var pathsToWatch: CFArrayRef = CFArrayCreate(kCFAllocatorDefault, [choosenDirectoryPath], 1, nil)
-//            var callBackInfo: FSEventStreamContext
-//            var stream = FSEventStreamCreate(nil, &directoryChanged, callBackInfo, pathsToWatch, kFSEventStreamEventIdSinceNow, 3.0, kFSEventStreamCreateFlagNone)
             runIteration()
         }
         else {
-            updateStatus("Configurações pendentes.")
+            LogManager.add("Configurações pendentes.", updateMenu: true)
         }
     }
     
     func runIteration() {
         detectFiles()
         if(!detectedFiles.isEmpty) { uploadFiles(); }
-        var timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
-        updateStatus("Última verificação às " + timestamp)
+        else {
+            var timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
+            LogManager.add("Última verificação às " + timestamp, updateMenu: true)
+        }
     }
 
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
-    }
-    
-    func updateStatus(message: String) {
-        statusMenuItem.title = message
     }
     
     func validConfiguration() -> Bool {
@@ -98,16 +92,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func uploadFiles() {
-        NSLog("Uploading Files")
+        LogManager.add("Enviando arquivos...", updateMenu: false)
 
         for file in detectedFiles {
             if contains(uploadedFiles, file.path!) { continue; }
-            updateStatus("Enviando arquivo " + file.lastPathComponent! + "...")
-            NSLog("Uploading " + file.path!)
+            LogManager.add("Enviando arquivo " + file.lastPathComponent! + "...", updateMenu: true)
             BoletoSimples.uploadFile(file, completionHandler: {
                 json in
                 if(json != nil) {
-                    NSLog("Uploaded " + file.path!)
                     self.uploadedFiles.append(file.path!);
                     NSUserDefaults.standardUserDefaults().setObject(self.uploadedFiles, forKey: "uploadedFiles")
                 }
@@ -117,8 +109,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //            var atts:NSDictionary = defaultFileManager.attributesOfItemAtPath(file.path!, error: NSErrorPointer())!
 //            var creationDate:AnyObject = atts["NSFileCreationDate"]!
 //            var modificationDate:AnyObject = atts["NSFileModificationDate"]!
-//            NSLog(creationDate.description)
-//            NSLog(modificationDate.description)
+//            LogManager.add(creationDate.description)
+//            LogManager.add(modificationDate.description)
         }
     }
     
@@ -129,8 +121,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func detectFiles() {
-        updateStatus("Verificando arquivos...")
-        NSLog("Detecting Files")
+        LogManager.add("Detectando arquivos...", updateMenu: true)
         detectedFiles = []
         if let filePaths = defaultFileManager.contentsOfDirectoryAtPath(choosenDirectoryPath, error: nil) {
             for filePath in filePaths {
@@ -139,16 +130,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 if !fileIsRetorno(file!) { continue; }
                 if contains(uploadedFiles, file!.path!) { continue; }
                 detectedFiles.append(file!)
-                NSLog("File detected: " + file!.path!)
-//                notifyFile(file!)
+                LogManager.add("Arquivo detectado: " + file!.path!, updateMenu: true)
+                notifyFile(file!)
             }
         }
     }
     
     func notifyFile(file: NSURL) {
         var notification = NSUserNotification()
-        notification.title = file.path!
-        notification.informativeText = "Novo arquivo detectado."
+        notification.title = "Novo arquivo detectado."
+        notification.informativeText = file.path!
+        notification.hasActionButton = false
         notificationCenter.deliverNotification(notification)
     }
     
@@ -185,19 +177,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 ).takeRetainedValue() as LSSharedFileListRef?
             if loginItemsRef != nil {
                 let loginItems: NSArray = LSSharedFileListCopySnapshot(loginItemsRef, nil).takeRetainedValue() as NSArray
-                println("There are \(loginItems.count) login items")
+                // println("There are \(loginItems.count) login items")
                 let lastItemRef: LSSharedFileListItemRef = loginItems.lastObject as! LSSharedFileListItemRef
                 for var i = 0; i < loginItems.count; ++i {
                     let currentItemRef: LSSharedFileListItemRef = loginItems.objectAtIndex(i) as! LSSharedFileListItemRef
                     if LSSharedFileListItemResolve(currentItemRef, 0, itemUrl, nil) == noErr {
                         if let urlRef: NSURL =  itemUrl.memory?.takeRetainedValue() {
-                            println("URL Ref: \(urlRef.lastPathComponent)")
+                            // println("URL Ref: \(urlRef.lastPathComponent)")
                             if urlRef.isEqual(appUrl) {
                                 return (currentItemRef, lastItemRef)
                             }
                         }
                     } else {
-                        println("Unknown login application")
+                        // println("Unknown login application")
                     }
                 }
                 //The application was not found in the startup list
