@@ -11,6 +11,7 @@
 		53211BF21B34BD8600556295 /* EonilFileSystemEvents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 53211BEA1B34BC7000556295 /* EonilFileSystemEvents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		53211BFE1B34CE6D00556295 /* LogsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53211BFD1B34CE6D00556295 /* LogsController.swift */; };
 		53211C001B34D14400556295 /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53211BFF1B34D14400556295 /* LogManager.swift */; };
+		53211C051B34EF6600556295 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53211C041B34EF6600556295 /* Preferences.swift */; };
 		536FD6E41B20D3D700D4A63D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6E31B20D3D700D4A63D /* AppDelegate.swift */; };
 		536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536FD6E51B20D3D700D4A63D /* ViewController.swift */; };
 		536FD6E81B20D3D700D4A63D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 536FD6E71B20D3D700D4A63D /* Images.xcassets */; };
@@ -86,6 +87,7 @@
 		53211BE21B34BC6F00556295 /* EonilFileSystemEvents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EonilFileSystemEvents.xcodeproj; path = ../FileSystemEvents/Project/EonilFileSystemEvents.xcodeproj; sourceTree = "<group>"; };
 		53211BFD1B34CE6D00556295 /* LogsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsController.swift; sourceTree = "<group>"; };
 		53211BFF1B34D14400556295 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
+		53211C041B34EF6600556295 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNAB Rapido.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		536FD6E21B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6E31B20D3D700D4A63D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		53211C031B34EE7000556295 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				536FD7371B22533800D4A63D /* SwiftyJSON.swift */,
+				53BC1A6F1B26840F00B21992 /* SwiftColors.swift */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 		536FD6D51B20D3D700D4A63D = {
 			isa = PBXGroup;
 			children = (
@@ -173,8 +184,7 @@
 		536FD6E01B20D3D700D4A63D /* CNAB Rapido */ = {
 			isa = PBXGroup;
 			children = (
-				53BC1A6F1B26840F00B21992 /* SwiftColors.swift */,
-				536FD7371B22533800D4A63D /* SwiftyJSON.swift */,
+				53211C031B34EE7000556295 /* Libraries */,
 				536FD6E31B20D3D700D4A63D /* AppDelegate.swift */,
 				536FD6E51B20D3D700D4A63D /* ViewController.swift */,
 				536FD6E71B20D3D700D4A63D /* Images.xcassets */,
@@ -184,6 +194,7 @@
 				53D7AFCB1B27E23800F9DC1F /* bridge.h */,
 				53211BFD1B34CE6D00556295 /* LogsController.swift */,
 				53211BFF1B34D14400556295 /* LogManager.swift */,
+				53211C041B34EF6600556295 /* Preferences.swift */,
 			);
 			path = "CNAB Rapido";
 			sourceTree = "<group>";
@@ -382,6 +393,7 @@
 				53D7AFE51B27E3C600F9DC1F /* AFNetworkReachabilityManager.m in Sources */,
 				53D7AFEA1B27E3C600F9DC1F /* AFURLSessionManager.m in Sources */,
 				53D7AFE81B27E3C600F9DC1F /* AFURLRequestSerialization.m in Sources */,
+				53211C051B34EF6600556295 /* Preferences.swift in Sources */,
 				536FD6E61B20D3D700D4A63D /* ViewController.swift in Sources */,
 				53D7AFE91B27E3C600F9DC1F /* AFURLResponseSerialization.m in Sources */,
 				53211C001B34D14400556295 /* LogManager.swift in Sources */,

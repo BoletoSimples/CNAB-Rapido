@@ -19,14 +19,18 @@ class ViewController: NSViewController {
     @IBOutlet weak var environmentRadio: NSMatrix!
     
     var myDelegate = NSApplication.sharedApplication().delegate as! AppDelegate
-    var choosenDirectoryPath: String!
     var returnFiles: [NSURL]!
     var json: JSON!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferencesLoaded()
         // Do any additional setup after loading the view.
+        self.title = "Configurações"
+        preferencesLoaded()
+    }
+    
+    override func viewDidDisappear() {
+        myDelegate.start()
     }
     
     override var representedObject: AnyObject? {
@@ -36,14 +40,11 @@ class ViewController: NSViewController {
     }
 
     @IBAction func copyToken(sender: AnyObject) {
-        let token = "57755ac6572e69a77e1917ec752f5d11179b2e2ec0d6769f0b8db5d9ed625819"
-        var pasteBoard = NSPasteboard.generalPasteboard()
-        pasteBoard.clearContents()
-        pasteBoard.writeObjects([token])
+        apiToken.stringValue = "57755ac6572e69a77e1917ec752f5d11179b2e2ec0d6769f0b8db5d9ed625819"
     }
     
     @IBAction func openTokenWebPage(sender: AnyObject) {
-        let urlString = NSURL(string: tokenLink.stringValue)
+        let urlString = NSURL(string: tokenLink.title)
         NSWorkspace.sharedWorkspace().openURL(urlString!)
     }
     
@@ -56,9 +57,16 @@ class ViewController: NSViewController {
         chooseDirectory(directoryPicker.URL!)
     }
     
-    
     @IBAction func environmentChange(sender: AnyObject) {
-        //NSLog(environmentRadio.value())
+        //var radioRow:Int = environmentRadio.selectedRow
+        var radioColumn:Int = environmentRadio.selectedColumn
+        switch radioColumn {
+        case 1:
+            Preferences.set("production", forKey: "boletosimplesEnvironment")
+        default:
+            Preferences.set("sandbox", forKey: "boletosimplesEnvironment")
+        }
+        Preferences.set("", forKey: "apiToken")
         preferencesLoaded()
     }
     
@@ -72,25 +80,30 @@ class ViewController: NSViewController {
             if(apiToken.stringValue == "") {
                 tokenMessage.stringValue = "Preencha o Token!"
                 tokenMessage.textColor = NSColor.redColor()
+                tokenMessage.hidden = false
             }
             else {
-                self.tokenMessage.stringValue = "Validando..."
-                self.tokenMessage.textColor = NSColor.blueColor()
+                tokenMessage.stringValue = "Validando..."
+                tokenMessage.textColor = NSColor.blueColor()
+                tokenMessage.hidden = false
+
                 self.apiToken.enabled = false
                 self.tokenButton.enabled = false
                 validateToken(apiToken.stringValue, completionHandler: {
                     valid in
                     if(valid) {
-                        NSUserDefaults.standardUserDefaults().setObject(self.apiToken.stringValue, forKey: "apiToken")
+                        Preferences.set(self.apiToken.stringValue, forKey: "apiToken")
                         self.apiToken.enabled = false
                         self.tokenMessage.stringValue = "Token validado com sucesso!"                        
                         self.tokenMessage.textColor = NSColor(hexString: "#58CD46")
+                        self.tokenMessage.hidden = false
                         self.tokenButton.title = "Trocar"
                     }
                     else {
                         self.apiToken.enabled = true
                         self.tokenMessage.stringValue = "Token inválido!"
                         self.tokenMessage.textColor = NSColor.redColor()
+                        self.tokenMessage.hidden = false
                     }
                     self.tokenButton.enabled = true
                 })
@@ -114,40 +127,45 @@ class ViewController: NSViewController {
     
     func chooseDirectory(choosenDirectory: NSURL!) {
         if(choosenDirectory == nil) { return; }
-        if(choosenDirectoryPath == choosenDirectory.path!) { return; }
-        NSUserDefaults.standardUserDefaults().setObject(choosenDirectory.path!, forKey: "choosenDirectoryPath")
+        if(Preferences.choosenDirectoryPath() == choosenDirectory.path!) { return; }
+        Preferences.set(choosenDirectory.path!, forKey: "choosenDirectoryPath")
         NSLog("Directory choosed: " + choosenDirectory!.path!)
         myDelegate.restart()
         preferencesLoaded()
     }
     
     func preferencesLoaded() {
+        // Sets checkbox of automatically load at startup
         if(myDelegate.applicationIsInStartUpItems() && autoStart.state == NSOffState) {
             autoStart.setNextState()
         }
-        monitoringPath.enabled = false
-        choosenDirectoryPath = NSUserDefaults.standardUserDefaults().objectForKey("choosenDirectoryPath") as? String
-        if(choosenDirectoryPath == nil) {
-            var choosenDirectoryPath: String = NSSearchPathForDirectoriesInDomains(.DownloadsDirectory, .UserDomainMask, true)[0] as! String
-            chooseDirectory(NSURL(fileURLWithPath: choosenDirectoryPath))
-        }
-        var boletosimplesEnvironment = NSUserDefaults.standardUserDefaults().objectForKey("boletosimplesEnvironment") as? String
-        if(boletosimplesEnvironment == nil) {
-            boletosimplesEnvironment = "sandbox"
-        }
         
+        // Sets directory to monitor
+        monitoringPath.enabled = false
+        monitoringPath.stringValue = Preferences.choosenDirectoryPath()
+
+        // Sets environment
+        var boletosimplesEnvironment = Preferences.boletosimplesEnvironment()
         if(boletosimplesEnvironment == "sandbox") {
-            tokenLink.stringValue = "https://sandbox.boletosimples.com.br/conta/api/tokens"
+            environmentRadio.selectCellAtRow(0, column: 0)
         }
         else if(boletosimplesEnvironment == "production") {
-            tokenLink.stringValue = "https://boletosimples.com.br/conta/api/tokens"
+            environmentRadio.selectCellAtRow(0, column: 1)
         }
-        monitoringPath.stringValue = choosenDirectoryPath
-        var apiTokenString = NSUserDefaults.standardUserDefaults().objectForKey("apiToken") as? String
-        if(apiTokenString != nil && !apiTokenString!.isEmpty) {
+        tokenLink.title = BoletoSimples.basePath("/conta/api/tokens")
+
+        
+        // Sets apiToken
+        var apiTokenString = Preferences.apiToken()
+        apiToken.stringValue = apiTokenString
+        self.tokenMessage.hidden = true
+        if(apiTokenString != "") {
             apiToken.enabled = false
-            apiToken.stringValue = apiTokenString!
             tokenButton.title = "Trocar"
+        } else {
+            apiToken.enabled = true
+            apiToken.becomeFirstResponder()
+            tokenButton.title = "Validar"
         }
     }
     

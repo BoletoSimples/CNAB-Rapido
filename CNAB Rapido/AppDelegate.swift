@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var statusMenuItem: NSMenuItem!
+    @IBOutlet weak var runMenuItem: NSMenuItem!
     
     let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
     let defaultFileManager: NSFileManager = NSFileManager()
@@ -23,6 +24,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var detectedFiles: [NSURL] = []
     var uploadedFiles: [String] = []
     var monitor: FileSystemEventMonitor? = nil
+    var running = false
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
@@ -31,30 +33,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.image = icon
         statusItem.menu = statusMenu
         
+        // Usado em tempo de desenvolvimento quando quiser apagar
+        // Preferences.clear()
+        
+        LogManager.add("Aplicativo Iniciado", updateMenu: false)
         start();
         
     }
     
     func start() {
-        LogManager.add("Aplicativo Iniciado", updateMenu: false)
-        var userDefaults = NSUserDefaults.standardUserDefaults()
+        LogManager.add("Loop de Configuração Iniciado", updateMenu: false)
         
         // Get choosen directory path and change current directory
-        if(userDefaults.objectForKey("choosenDirectoryPath") != nil) {
-            choosenDirectoryPath = (userDefaults.objectForKey("choosenDirectoryPath") as? String)!
-            defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
-        }
+        choosenDirectoryPath = Preferences.choosenDirectoryPath()
+        defaultFileManager.changeCurrentDirectoryPath(choosenDirectoryPath)
 
         // Get apiToken and configure Boleto Simples
-        if(userDefaults.objectForKey("apiToken") != nil) {
-            apiTokenString = (userDefaults.objectForKey("apiToken") as? String!)!
-            BoletoSimples.configure(apiTokenString)
-        }
+        apiTokenString = Preferences.apiToken()
+        BoletoSimples.configure(apiTokenString)
 
         // Get uploaded files
-        if(userDefaults.objectForKey("uploadedFiles") != nil) {
-            uploadedFiles = userDefaults.objectForKey("uploadedFiles")! as! [String]
-        }
+        uploadedFiles = Preferences.uploadedFiles()
         
         // Start monitoring
         if(validConfiguration()) {
@@ -64,6 +63,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.runIteration()
             })
 
+            runMenuItem.enabled = true
             runIteration()
         }
         else {
@@ -72,11 +72,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func runIteration() {
+        if(!validConfiguration()) { return; }
+        runMenuItem.enabled = false
         detectFiles()
         if(!detectedFiles.isEmpty) { uploadFiles(); }
         else {
             var timestamp = NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: .MediumStyle, timeStyle: .ShortStyle)
             LogManager.add("Última verificação às " + timestamp, updateMenu: true)
+            self.runMenuItem.enabled = true
         }
     }
 
@@ -94,14 +97,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func uploadFiles() {
         LogManager.add("Enviando arquivos...", updateMenu: false)
 
+        var uploading = 0
         for file in detectedFiles {
             if contains(uploadedFiles, file.path!) { continue; }
+            uploading = uploading+1;
             LogManager.add("Enviando arquivo " + file.lastPathComponent! + "...", updateMenu: true)
             BoletoSimples.uploadFile(file, completionHandler: {
                 json in
                 if(json != nil) {
                     self.uploadedFiles.append(file.path!);
-                    NSUserDefaults.standardUserDefaults().setObject(self.uploadedFiles, forKey: "uploadedFiles")
+                    Preferences.set(self.uploadedFiles, forKey: "uploadedFiles")
+                }
+                uploading = uploading-1
+                if(uploading == 0) {
+                    self.runMenuItem.enabled = true
                 }
             })
 
@@ -153,7 +162,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if(content!.hasPrefix("02RETORNO") != true) { return false; }
         return true;
     }
-    
     
     @IBAction func runNow(sender: AnyObject) {
         runIteration()
