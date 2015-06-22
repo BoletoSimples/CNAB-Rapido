@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "536FD6DD1B20D3D700D4A63D"
-               BuildableName = "CNAB Rapido.app"
-               BlueprintName = "CNAB Rapido"
-               ReferencedContainer = "container:CNAB Rapido.xcodeproj">
+               BuildableName = "CNAB Ra&#x301;pido.app"
+               BlueprintName = "CNAB Ra&#x301;pido"
+               ReferencedContainer = "container:CNAB Ra&#x301;pido.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "536FD6EF1B20D3D700D4A63D"
-               BuildableName = "CNAB RapidoTests.xctest"
-               BlueprintName = "CNAB RapidoTests"
-               ReferencedContainer = "container:CNAB Rapido.xcodeproj">
+               BuildableName = "CNAB Ra&#x301;pidoTests.xctest"
+               BlueprintName = "CNAB Ra&#x301;pidoTests"
+               ReferencedContainer = "container:CNAB Ra&#x301;pido.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "536FD6EF1B20D3D700D4A63D"
-               BuildableName = "CNAB RapidoTests.xctest"
-               BlueprintName = "CNAB RapidoTests"
-               ReferencedContainer = "container:CNAB Rapido.xcodeproj">
+               BuildableName = "CNAB Ra&#x301;pidoTests.xctest"
+               BlueprintName = "CNAB Ra&#x301;pidoTests"
+               ReferencedContainer = "container:CNAB Ra&#x301;pido.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "536FD6DD1B20D3D700D4A63D"
-            BuildableName = "CNAB Rapido.app"
-            BlueprintName = "CNAB Rapido"
-            ReferencedContainer = "container:CNAB Rapido.xcodeproj">
+            BuildableName = "CNAB Ra&#x301;pido.app"
+            BlueprintName = "CNAB Ra&#x301;pido"
+            ReferencedContainer = "container:CNAB Ra&#x301;pido.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "536FD6DD1B20D3D700D4A63D"
-            BuildableName = "CNAB Rapido.app"
-            BlueprintName = "CNAB Rapido"
-            ReferencedContainer = "container:CNAB Rapido.xcodeproj">
+            BuildableName = "CNAB Ra&#x301;pido.app"
+            BlueprintName = "CNAB Ra&#x301;pido"
+            ReferencedContainer = "container:CNAB Ra&#x301;pido.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "536FD6DD1B20D3D700D4A63D"
-            BuildableName = "CNAB Rapido.app"
-            BlueprintName = "CNAB Rapido"
-            ReferencedContainer = "container:CNAB Rapido.xcodeproj">
+            BuildableName = "CNAB Ra&#x301;pido.app"
+            BlueprintName = "CNAB Ra&#x301;pido"
+            ReferencedContainer = "container:CNAB Ra&#x301;pido.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
