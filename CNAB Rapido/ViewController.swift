@@ -38,10 +38,6 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-    @IBAction func copyToken(sender: AnyObject) {
-        apiToken.stringValue = "57755ac6572e69a77e1917ec752f5d11179b2e2ec0d6769f0b8db5d9ed625819"
-    }
     
     @IBAction func openTokenWebPage(sender: AnyObject) {
         let urlString = NSURL(string: tokenLink.title)
