@@ -88,13 +88,13 @@
 		53211BFD1B34CE6D00556295 /* LogsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsController.swift; sourceTree = "<group>"; };
 		53211BFF1B34D14400556295 /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogManager.swift; sourceTree = "<group>"; };
 		53211C041B34EF6600556295 /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		536FD6DE1B20D3D700D4A63D /* CNAB Rápido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNAB Rápido.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CNAB Rapido.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		536FD6E21B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6E31B20D3D700D4A63D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		536FD6E51B20D3D700D4A63D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		536FD6E71B20D3D700D4A63D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		536FD6EA1B20D3D700D4A63D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		536FD6F01B20D3D700D4A63D /* CNAB RápidoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CNAB RápidoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CNAB RapidoTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		536FD6F51B20D3D700D4A63D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		536FD6F61B20D3D700D4A63D /* CNAB_RapidoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CNAB_RapidoTests.swift; sourceTree = "<group>"; };
 		536FD7371B22533800D4A63D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
@@ -175,8 +175,8 @@
 		536FD6DF1B20D3D700D4A63D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				536FD6DE1B20D3D700D4A63D /* CNAB Rápido.app */,
-				536FD6F01B20D3D700D4A63D /* CNAB RápidoTests.xctest */,
+				536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */,
+				536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -253,9 +253,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		536FD6DD1B20D3D700D4A63D /* CNAB Rápido */ = {
+		536FD6DD1B20D3D700D4A63D /* CNAB Rapido */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 536FD6FA1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB Rápido" */;
+			buildConfigurationList = 536FD6FA1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB Rapido" */;
 			buildPhases = (
 				536FD6DA1B20D3D700D4A63D /* Sources */,
 				536FD6DB1B20D3D700D4A63D /* Frameworks */,
@@ -266,14 +266,14 @@
 			);
 			dependencies = (
 			);
-			name = "CNAB Rápido";
+			name = "CNAB Rapido";
 			productName = "CNAB Rapido";
-			productReference = 536FD6DE1B20D3D700D4A63D /* CNAB Rápido.app */;
+			productReference = 536FD6DE1B20D3D700D4A63D /* CNAB Rapido.app */;
 			productType = "com.apple.product-type.application";
 		};
-		536FD6EF1B20D3D700D4A63D /* CNAB RápidoTests */ = {
+		536FD6EF1B20D3D700D4A63D /* CNAB RapidoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RápidoTests" */;
+			buildConfigurationList = 536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RapidoTests" */;
 			buildPhases = (
 				536FD6EC1B20D3D700D4A63D /* Sources */,
 				536FD6ED1B20D3D700D4A63D /* Frameworks */,
@@ -284,9 +284,9 @@
 			dependencies = (
 				536FD6F21B20D3D700D4A63D /* PBXTargetDependency */,
 			);
-			name = "CNAB RápidoTests";
+			name = "CNAB RapidoTests";
 			productName = "CNAB RapidoTests";
-			productReference = 536FD6F01B20D3D700D4A63D /* CNAB RápidoTests.xctest */;
+			productReference = 536FD6F01B20D3D700D4A63D /* CNAB RapidoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -307,7 +307,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 536FD6D91B20D3D700D4A63D /* Build configuration list for PBXProject "CNAB Rápido" */;
+			buildConfigurationList = 536FD6D91B20D3D700D4A63D /* Build configuration list for PBXProject "CNAB Rapido" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -326,8 +326,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				536FD6DD1B20D3D700D4A63D /* CNAB Rápido */,
-				536FD6EF1B20D3D700D4A63D /* CNAB RápidoTests */,
+				536FD6DD1B20D3D700D4A63D /* CNAB Rapido */,
+				536FD6EF1B20D3D700D4A63D /* CNAB RapidoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -420,7 +420,7 @@
 /* Begin PBXTargetDependency section */
 		536FD6F21B20D3D700D4A63D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 536FD6DD1B20D3D700D4A63D /* CNAB Rápido */;
+			target = 536FD6DD1B20D3D700D4A63D /* CNAB Rapido */;
 			targetProxy = 536FD6F11B20D3D700D4A63D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -530,7 +530,7 @@
 				INFOPLIST_FILE = "CNAB Rapido/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "CNAB Rápido";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CNAB Rapido/bridge.h";
 			};
 			name = Debug;
@@ -548,7 +548,7 @@
 				INFOPLIST_FILE = "CNAB Rapido/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_NAME = "CNAB Rápido";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "CNAB Rapido/bridge.h";
 			};
 			name = Release;
@@ -568,7 +568,7 @@
 				);
 				INFOPLIST_FILE = "CNAB RapidoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "CNAB RápidoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CNAB Rapido.app/Contents/MacOS/CNAB Rapido";
 			};
 			name = Debug;
@@ -584,7 +584,7 @@
 				);
 				INFOPLIST_FILE = "CNAB RapidoTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "CNAB RápidoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CNAB Rapido.app/Contents/MacOS/CNAB Rapido";
 			};
 			name = Release;
@@ -592,7 +592,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		536FD6D91B20D3D700D4A63D /* Build configuration list for PBXProject "CNAB Rápido" */ = {
+		536FD6D91B20D3D700D4A63D /* Build configuration list for PBXProject "CNAB Rapido" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				536FD6F81B20D3D700D4A63D /* Debug */,
@@ -601,7 +601,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		536FD6FA1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB Rápido" */ = {
+		536FD6FA1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB Rapido" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				536FD6FB1B20D3D700D4A63D /* Debug */,
@@ -610,7 +610,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RápidoTests" */ = {
+		536FD6FD1B20D3D700D4A63D /* Build configuration list for PBXNativeTarget "CNAB RapidoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				536FD6FE1B20D3D700D4A63D /* Debug */,
